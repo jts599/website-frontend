@@ -1,0 +1,19 @@
+{
+  "name": "website-frontend",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [5173],
+  "mounts": [
+    "source=${localEnv:USERPROFILE}/.novita-key,target=/home/node/.novita-key,type=bind,readonly"
+  ],
+  "postCreateCommand": "npm ci && .devcontainer/install-pi.sh",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.eol": "\n"
+      },
+      "extensions": ["oxc.oxc-vscode"]
+    }
+  }
+}
