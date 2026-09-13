@@ -1,8 +1,13 @@
 {
   "name": "website-frontend",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "forwardPorts": [5173],
-  "postCreateCommand": "npm ci",
+  "mounts": [
+    "source=${localEnv:USERPROFILE}/.novita-key,target=/home/node/.novita-key,type=bind,readonly"
+  ],
+  "postCreateCommand": "npm ci && .devcontainer/install-pi.sh",
   "customizations": {
     "vscode": {
       "settings": {
