@@ -5,7 +5,7 @@ Front-end for my personal website.
 ## Development
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
