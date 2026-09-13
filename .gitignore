@@ -7,18 +7,35 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+
+# Build output (built by the Pages workflow, never committed)
 dist
 dist-ssr
+*.tsbuildinfo
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
 *.local
+
+# Test coverage
+coverage
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
+Desktop.ini
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Package archives
+*.tgz

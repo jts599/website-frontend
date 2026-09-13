@@ -13,15 +13,71 @@ body {
   min-height: 100vh;
 }
 
-.app {
+.layout {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.hero {
-  width: min(100%, 42rem);
+/* Header */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.site-header__brand {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-left: auto;
+}
+
+.site-header__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-nav a,
+.site-header__social a {
+  font-size: 0.925rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.site-nav a:hover,
+.site-header__social a:hover {
+  color: #38bdf8;
+}
+
+/* Main content */
+
+.site-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 3rem 2rem;
+}
+
+.hero,
+.page {
+  width: min(100%, 48rem);
+}
+
+.page {
   padding: 3rem;
   border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 1.5rem;
@@ -44,9 +100,81 @@ h1 {
   line-height: 1;
 }
 
+.page h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
 .intro {
   margin: 1.5rem 0 0;
   font-size: 1.125rem;
   line-height: 1.6;
   color: #cbd5e1;
+}
+
+/* Link hub */
+
+.card-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1rem;
+}
+
+.social-links {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.link-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.72);
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.social-links .link-card {
+  flex: 0 0 auto;
+  padding: 0.625rem 1.25rem;
+}
+
+.link-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.6);
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.link-card__label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.link-card__description {
+  font-size: 0.925rem;
+  line-height: 1.45;
+  color: #94a3b8;
+}
+
+/* Footer */
+
+.site-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+  text-align: center;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.site-footer p {
+  margin: 0;
 }

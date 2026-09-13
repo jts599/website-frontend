@@ -7,4 +7,8 @@ const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1]
 export default defineConfig({
   base: process.env.GITHUB_ACTIONS && repositoryName ? `/${repositoryName}/` : '/',
   plugins: [react()],
+  server: {
+    // Bind to all interfaces so dev-container / VS Code port forwarding can reach it.
+    host: true,
+  },
 })
