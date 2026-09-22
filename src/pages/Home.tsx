@@ -1,5 +1,5 @@
 import LinkCard from '../components/LinkCard'
-import { navLinks, socialLinks } from '../data/links'
+import { navLinks, projects, socialLinks } from '../data/links'
 
 function Home() {
   return (
@@ -12,15 +12,31 @@ function Home() {
       </p>
 
       <nav className="card-grid" aria-label="Sections">
-        {navLinks.map((link) => (
-          <LinkCard
-            key={link.to}
-            label={link.label}
-            description={link.description}
-            to={link.to}
-          />
-        ))}
+        {navLinks
+          .filter((link) => link.showOnHome !== false)
+          .map((link) => (
+            <LinkCard
+              key={link.to}
+              label={link.label}
+              description={link.description}
+              to={link.to}
+            />
+          ))}
       </nav>
+
+      <section className="projects">
+        <h2 className="section-heading">Projects</h2>
+        <div className="card-grid">
+          {projects.map((project) => (
+            <LinkCard
+              key={project.label}
+              label={project.label}
+              description={project.description}
+              href={project.href}
+            />
+          ))}
+        </div>
+      </section>
 
       <div className="social-links">
         {socialLinks.map((link) => (

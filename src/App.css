@@ -120,6 +120,21 @@ h1 {
   gap: 1rem;
 }
 
+.projects {
+  margin-top: 2.5rem;
+}
+
+.projects .card-grid {
+  margin-top: 0;
+}
+
+.section-heading {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
 .social-links {
   margin-top: 2rem;
   display: flex;

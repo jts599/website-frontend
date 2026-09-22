@@ -1,0 +1,3 @@
+[submodule "stargazer"]
+	path = stargazer
+	url = https://github.com/jts599/Stargazer.git

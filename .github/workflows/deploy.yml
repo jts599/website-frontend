@@ -21,6 +21,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          # Pull in the Stargazer submodule so it can be built and bundled.
+          # Public submodules work with the default token; if Stargazer is
+          # ever made private, add a PAT secret named SUBMODULE_TOKEN.
+          submodules: recursive
+          token: ${{ secrets.SUBMODULE_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
