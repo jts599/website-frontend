@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 import { navLinks, socialLinks } from '../data/links'
 
 function Layout() {
@@ -11,13 +11,24 @@ function Layout() {
 
         <nav className="site-nav" aria-label="Primary">
           {navLinks.map((link) => (
-            <Link key={link.to} to={link.to}>
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end={link.to === '/'}
+              className={({ isActive }) => (isActive ? 'active' : undefined)}
+            >
               {link.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
+      </header>
 
-        <div className="site-header__social">
+      <main className="site-main">
+        <Outlet />
+      </main>
+
+      <footer className="site-footer">
+        <nav className="site-footer__social" aria-label="Social">
           {socialLinks.map((link) => (
             <a
               key={link.label}
@@ -28,14 +39,7 @@ function Layout() {
               {link.label}
             </a>
           ))}
-        </div>
-      </header>
-
-      <main className="site-main">
-        <Outlet />
-      </main>
-
-      <footer className="site-footer">
+        </nav>
         <p>&copy; {new Date().getFullYear()} Joe Sloyan</p>
       </footer>
     </div>

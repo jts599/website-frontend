@@ -12,9 +12,12 @@
   },
   "dependencies": {
     "@huggingface/inference": "^4.13.28",
+    "@mdx-js/rollup": "^3.1.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.3"
+    "react-router-dom": "^7.18.3",
+    "remark-frontmatter": "^5.0.0",
+    "remark-mdx-frontmatter": "^5.2.0"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",

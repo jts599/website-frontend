@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ApiKeyField from '../components/imagegen/ApiKeyField'
 import ImageResult from '../components/imagegen/ImageResult'
 import ModelSelect from '../components/imagegen/ModelSelect'
@@ -17,6 +17,17 @@ function ImageGenerator() {
 
   const { status, imageUrl, downloadName, error, generate, cancel } = useImageGeneration()
   const enhancer = usePromptEnhancer()
+
+  // Hidden experiment: keep it out of search engine indexes.
+  useEffect(() => {
+    const meta = document.createElement('meta')
+    meta.name = 'robots'
+    meta.content = 'noindex, nofollow'
+    document.head.appendChild(meta)
+    return () => {
+      document.head.removeChild(meta)
+    }
+  }, [])
 
   const model = imageModels.find((item) => item.id === modelId) ?? defaultImageModel
   const hasApiKey = apiKey.trim() !== ''

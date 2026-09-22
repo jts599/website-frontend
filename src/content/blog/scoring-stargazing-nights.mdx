@@ -1,0 +1,44 @@
+---
+title: Scoring a good stargazing night
+date: 2026-02-15
+summary: How Stargazer turns sunset, twilight, and moon data into a single number you can plan around.
+project: stargazer
+---
+
+import ScoreDial from '../../components/blog/ScoreDial'
+
+A clear sky is only half the story. Even on a cloudless night, a bright moon can
+wash out everything worth looking at, and a late sunset can eat the best hours
+before it gets properly dark. Stargazer exists to collapse all of that into one
+number you can scan a calendar with.
+
+## The inputs
+
+Each night is described by a handful of timings and a single illumination value:
+
+- **Sunset and the end of astronomical twilight** — when the sky actually gets dark.
+- **Moonrise and moonset** — when the moon is above the horizon at all.
+- **Moon illumination** — how much of the moon is lit.
+
+None of these are hard to look up on their own. The trick is that they interact.
+
+## Turning timings into a score
+
+The core idea is to measure how much *dark, moonless* time a night offers
+between the end of twilight and the start of the next one. A night where the
+moon sets early scores well; a full moon that rises at dusk scores poorly even
+though the sky is dark.
+
+<ScoreDial score={82} label="A strong night" />
+
+An early-setting crescent moon leaves most of the night dark, so the score lands
+high. Compare that with a night where the moon is up until dawn:
+
+<ScoreDial score={24} label="A washed-out night" />
+
+## What the score is (and isn't)
+
+The score is a deliberately simple heuristic, not an astronomy model. It does
+not know about clouds, light pollution, or local horizon obstructions. It is a
+starting point for deciding *when* to look up — not a promise about what you
+will see.
