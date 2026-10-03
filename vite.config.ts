@@ -4,11 +4,11 @@ import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import { defineConfig } from 'vite'
 
-const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1]
-
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS && repositoryName ? `/${repositoryName}/` : '/',
+  // The site is served from a custom domain (joesloyan.dev) at the root, so
+  // assets must be referenced from "/" rather than "/<repo>/".
+  base: '/',
   plugins: [
     {
       // MDX must run before the React plugin so its JSX output is transformed.

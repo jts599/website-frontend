@@ -13,11 +13,9 @@ import { fileURLToPath } from 'node:url'
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const appDir = join(repoRoot, 'stargazer', 'stargazer-react')
 
-// GitHub Pages serves project sites from `/<repo-name>/`, and the main
-// site's Vite base matches that. Reuse the same value here so Stargazer's
-// assets resolve under `/<repo-name>/stargazer/`.
-const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1]
-const base = repoName ? `/${repoName}/stargazer/` : '/stargazer/'
+// The site is served from a custom domain (joesloyan.dev) at the root, so
+// Stargazer's assets resolve under `/stargazer/`.
+const base = '/stargazer/'
 
 if (!existsSync(appDir)) {
   console.warn(
