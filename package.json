@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build && npm run build:stargazer",
     "build:stargazer": "node scripts/build-stargazer.mjs",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "bash scripts/deploy.sh"
   },
   "dependencies": {
     "@huggingface/inference": "^4.13.28",
