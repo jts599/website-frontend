@@ -51,7 +51,11 @@ function Layout() {
             </a>
           ))}
         </nav>
-        <p>&copy; {new Date().getFullYear()} Joe Sloyan</p>
+        <p>
+          <Link className="site-footer__link" to="/attributions">
+            &copy; {new Date().getFullYear()} Joe Sloyan
+          </Link>
+        </p>
         </footer>
       )}
     </div>

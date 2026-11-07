@@ -60,10 +60,6 @@ function Leaf({ left, top, size, rotate, drift, duration, delay, name }: Falling
 export function LightScene() {
   return (
     <div className="home__scene home__scene--light">
-      <TreeImage name="tree3" className="scene-tree scene-tree--left" />
-      <TreeImage name="tree2" className="scene-tree scene-tree--right" />
-      <TreeImage name="tree1" className="scene-tree" />
-
       {LEAVES.map((leaf, index) => (
         <Leaf
           key={index}
@@ -72,6 +68,8 @@ export function LightScene() {
           top={`${(index * 47 + 9) % 84}%`}
         />
       ))}
+
+      <TreeImage name="tree1" className="scene-tree" />
     </div>
   )
 }
