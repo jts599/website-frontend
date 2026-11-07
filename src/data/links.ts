@@ -11,7 +11,7 @@ export type SocialLink = {
 export const navLinks: NavLink[] = [
   {
     label: 'Projects',
-    to: '/',
+    to: '/projects',
   },
   {
     label: 'About',

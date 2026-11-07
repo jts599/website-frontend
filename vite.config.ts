@@ -23,5 +23,11 @@ export default defineConfig({
   server: {
     // Bind to all interfaces so dev-container / VS Code port forwarding can reach it.
     host: true,
+    watch: {
+      // WSL / Docker-on-Windows bind mounts (9p, drvfs, some network filesystems)
+      // do not emit inotify events reliably, so poll for changes instead.
+      usePolling: true,
+      interval: 300,
+    },
   },
 })

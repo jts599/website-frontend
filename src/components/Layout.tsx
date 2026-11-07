@@ -1,10 +1,17 @@
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
+import ThemeToggle from './ThemeToggle'
 import { navLinks, socialLinks } from '../data/links'
+import { useTheme } from '../theme'
 
 function Layout() {
+  const { theme, toggle } = useTheme()
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
+
   return (
     <div className="layout">
-      <header className="site-header">
+      {isHome ? null : (
+        <header className="site-header">
         <Link className="site-header__brand" to="/">
           Joe Sloyan
         </Link>
@@ -21,13 +28,17 @@ function Layout() {
             </NavLink>
           ))}
         </nav>
-      </header>
 
-      <main className="site-main">
+        <ThemeToggle theme={theme} onToggle={toggle} />
+        </header>
+      )}
+
+      <main className={isHome ? 'site-main site-main--home' : 'site-main'}>
         <Outlet />
       </main>
 
-      <footer className="site-footer">
+      {isHome ? null : (
+        <footer className="site-footer">
         <nav className="site-footer__social" aria-label="Social">
           {socialLinks.map((link) => (
             <a
@@ -41,7 +52,8 @@ function Layout() {
           ))}
         </nav>
         <p>&copy; {new Date().getFullYear()} Joe Sloyan</p>
-      </footer>
+        </footer>
+      )}
     </div>
   )
 }

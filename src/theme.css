@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Field Notes — a nature palette in light + dark.
+   Values only. Layout and component rules live in index.css / App.css.
+   ========================================================================== */
+
+:root {
+  --bg: #f7f5ef;
+  --surface: #efeee5;
+  --ink: #2a2e2a;
+  --muted: #6b726a;
+  --line: #dedacc;
+  --accent: #4f6f52;
+  --accent-2: #b07a4a;
+  --accent-ink: #f7f5ef;
+
+  /* Heading serif. Swap just this line to compare; all candidates are loaded
+     in dev (trim to one before shipping).
+       'Source Serif 4' | 'Newsreader' | 'Spectral' | 'Literata' */
+  --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --radius: 0.5rem;
+  --measure: 44rem;
+  --measure-wide: 52rem;
+
+  --dur: 160ms;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --bg: #101511;
+  --surface: #161d17;
+  --ink: #e7ebe3;
+  --muted: #9aa69b;
+  --line: rgba(231, 235, 227, 0.1);
+  --accent: #93b48c;
+  --accent-2: #c6a276;
+  --accent-ink: #101511;
+
+  color-scheme: dark;
+}
+
+/* Fallback for when JS is disabled and no data-theme attribute was set. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg: #101511;
+    --surface: #161d17;
+    --ink: #e7ebe3;
+    --muted: #9aa69b;
+    --line: rgba(231, 235, 227, 0.1);
+    --accent: #93b48c;
+    --accent-2: #c6a276;
+    --accent-ink: #101511;
+
+    color-scheme: dark;
+  }
+}
